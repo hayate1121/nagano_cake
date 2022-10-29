@@ -6,11 +6,36 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav class="bavbar  navbar-expand-lg">
+        <div class="container">
+          <ul>
+            LOGO
+          </ul>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+              <li>
+                about
+              </li>
+              <li>
+                商品一覧
+              </li>
+              <li>
+                新規登録
+              </li>
+              <li>
+                ログイン
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
