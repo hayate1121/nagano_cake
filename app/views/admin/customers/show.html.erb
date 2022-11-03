@@ -19,6 +19,7 @@
 <% if @item.is_deleted = true %>
 <p>有効</p>
 <% else %>
-<p>無効</p>
+<p>退会</p>
 <% end %>
 
+<%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
