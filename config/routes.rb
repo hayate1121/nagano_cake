@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  get 'genres' => 'admin/genres#index'
-  get 'genres' => 'admin/genres/:id/edit#edit'
+  namespace :admin do
+    resources :genres
+    resources :items
+    resources :customers
+  end
 
   end

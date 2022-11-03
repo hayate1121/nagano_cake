@@ -1,5 +1,5 @@
-<%= form_with model: @genre do |f| %>
-  <h2>ジャンル名</h2>
+<h2>ジャンル名</h2>
+  <%= form_with model: @genre, url: admin_genres_path do |f| %>
     <%= f.text_field :name %>
   <%= f.submit '新規登録' %>
 <% end %>
@@ -17,8 +17,9 @@
         <%= genre.name %>
       </td>
       <td>
-        <%= link_to "編集する", 
+        <%= link_to "編集する", edit_admin_genre_path(genre.id) %>
       </td>
     </tr>
   </tbody>
+  <% end %>
 </table>

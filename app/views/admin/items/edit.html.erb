@@ -1,0 +1,19 @@
+<h4>商品編集</h4>
+<%= form_with model: @item, url: admin_item_path do |f| %>
+<ul>商品画像</ul>
+<%= f.file_field :item_image, accept: "image/*" %>
+<ul>商品名</ul>
+<%= f.text_field :name %>
+<ul>商品説明</ul>
+<%= f.text_area :introduction %>
+<ul>ジャンル</ul>
+<%= f.collection_select :genre_id, Genre.all, :id, :name, options = { include_blank: false } %>
+<ul>税抜価格</ul>
+<%= f.text_field :price %>
+<ul>販売ステータス</ul>
+<%= f.radio_button :is_active, :true %>
+<%= f.label :is_active, "販売中", {value: :true, style: "display: inline-block;"} %>
+<%= f.radio_button :is_active, :false %>
+<%= f.label :is_active, "販売停止中", {value: :false, style: "display: inline-block;"} %>
+<%= f.submit "新規登録" %>
+<% end %>

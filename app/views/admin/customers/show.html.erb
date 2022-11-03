@@ -1,0 +1,24 @@
+<h4>
+  <%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細
+</h4>
+<ul>会員ID</ul>
+<%= @customer.id %>
+<ul>氏名</ul>
+<%= @customer.last_name %> <%= @customer.first_name %>
+<ul>フリガナ</ul>
+<%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
+<ul>郵便番号</ul>
+<%= @customer.postal_code %>
+<ul>住所</ul>
+<%= @customer.address %>
+<ul>電話番号</ul>
+<%= @customer.telephone_number %>
+<ul>メールアドレス</ul>
+<%= @customer.email %>
+<ul>会員ステータス</ul>
+<% if @item.is_deleted = true %>
+<p>有効</p>
+<% else %>
+<p>無効</p>
+<% end %>
+
