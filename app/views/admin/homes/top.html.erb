@@ -1,0 +1,28 @@
+<h4>注文履歴一覧</h4>
+<table class="table">
+  <thead>
+    <tr>
+      <th>購入日時</th>
+      <th>購入者</th>
+      <th>注文個数</th>
+      <th>注文ステータス</th>
+    </tr>
+  </thead>
+  <% @orders.each do |order| %>
+  <tbody>
+    <tr>
+      <td>
+        <%= order.created_at %>
+      </td>
+      <td>
+        <%= order.customer.name %>
+      </td>
+      <td>
+        <%= order.order_detail.amount %>
+      </td>
+      <td>
+        <%= order.status %>
+      </td>
+    </tr>
+  </tbody>
+</table>

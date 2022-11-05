@@ -12,10 +12,14 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
+  root to: "homes#top"
+
   namespace :admin do
     resources :genres
     resources :items
     resources :customers
+    resources :orders
+    root to: "homes#top"
   end
 
   end

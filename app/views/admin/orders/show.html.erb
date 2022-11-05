@@ -1,0 +1,11 @@
+<h4>注文履歴詳細</h4>
+<h4>購入者</h4>
+<%= @order.customer.name %>
+<h4>注文日</h4>
+<%= @order.created_at %>
+<h4>配送先</h4>
+<%= @order.address %>
+<h4>支払方法</h4>
+<%= @order.payment_method %>
+<h4>注文ステータス</h4>
+<%= f.collection_select :status, @order, :id, :status %>
