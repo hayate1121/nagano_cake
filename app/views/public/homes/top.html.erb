@@ -12,6 +12,7 @@
       </td>
     </tr>
   </tbody>
+  <% end %>
 </table>
 
 <div>
@@ -24,3 +25,6 @@
 </div>
 
 <h4>新着商品</h4>
+<% @items.each do |item| %>
+  <%= item.name %>
+<% end %>

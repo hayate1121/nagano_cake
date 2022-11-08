@@ -1,0 +1,6 @@
+<ul>本当に退会しますか？</ul>
+<a>退会すると、会員登録情報や</a><br>
+<a>これまでの購入履歴が閲覧できなくなります。</a><br>
+<a>退会する場合は、「退会する」をクリックしてください。</a><br>
+
+<%= link_to '退会する',  customers_invalid_path(@customer.id, customer: {is_deleted: true}), method: :patch %>

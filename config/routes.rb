@@ -12,7 +12,16 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  root to: "homes#top"
+  root to: "public/homes#top"
+
+  scope module: :public do
+    resources :customers
+    resources :addresses
+    resources :orders
+    get '/customers/unsubscribe' => 'customers#unsubscribe', as: "unsubscribe"
+    patch '/customers/invalid' => 'customers#invalid'
+    get '/about' => 'homes#about', as: "about"
+  end
 
   namespace :admin do
     resources :genres
