@@ -1,11 +1,11 @@
 <h4>配送先登録/一覧</h4>
   <%= form_with model: @address, url: addresses_path do |f| %>
-    <a>郵便番号（ハイフンなし）</a>
+    <ul>郵便番号（ハイフンなし）</ul>
     <%= f.text_field :postal_code %>
-    <a>住所</a>
+    <ul>住所</ul>
     <%= f.text_area :address %>
-    <a>宛名</a>
-    <%= f.text_field :name %>
+    <ul>宛名</ul>
+    <%= f.text_field :name %><br>
     <%= f.submit "新規登録" %>
   <% end %>
 
@@ -31,9 +31,10 @@
         <%= address.name %>
       </td>
       <td>
-        <%= link_to "編集する", edit_address_path %>
-        <%= link_to "削除する", customer_path, method: :delete %>
+        <%= link_to "編集する", edit_address_path(address.id) %>
+        <%= link_to "削除する", customer_path(address.id), method: :delete %>
       </td>
     </tr>
   </tbody>
+  <% end %>
 </table>

@@ -15,10 +15,10 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
 
   scope module: :public do
+    get '/customers/unsubscribe' => 'customers#unsubscribe', as: "unsubscribe"
     resources :customers
     resources :addresses
     resources :orders
-    get '/customers/unsubscribe' => 'customers#unsubscribe', as: "unsubscribe"
     patch '/customers/invalid' => 'customers#invalid'
     get '/about' => 'homes#about', as: "about"
   end
