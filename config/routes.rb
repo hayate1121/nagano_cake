@@ -16,10 +16,13 @@ Rails.application.routes.draw do
 
   scope module: :public do
     get '/customers/unsubscribe' => 'customers#unsubscribe', as: "unsubscribe"
-    resources :customers
+    get '/customers' => 'customers#show', as: "customer"
+    get '/customers/information/edit' => 'customers#edit', as: "edit_customer"
+    patch '/customers' => 'customers#update', as: "update_customer"
+    patch '/customers/invalid' => 'customers#invalid', as: "invalid"
     resources :addresses
     resources :orders
-    patch '/customers/invalid' => 'customers#invalid'
+    resources :items
     get '/about' => 'homes#about', as: "about"
   end
 

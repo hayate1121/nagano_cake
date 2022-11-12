@@ -1,0 +1,10 @@
+<%= image_tag @item.item_image %>
+<%= @item.name %>
+<%= @item.introduction %>
+￥<%= @item.price %>(税込)
+
+<%= form_with @cart_item do |f| %>
+<%= f.select :amount, *[1..3] %>
+<% end %>
+個数選択
+カートに入れる

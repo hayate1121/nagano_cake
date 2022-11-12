@@ -7,7 +7,7 @@
 <ul>商品説明</ul>
 <%= f.text_area :introduction %>
 <ul>ジャンル</ul>
-<%= f.collection_select :genre_id, Genre.all, :id, :name, options = { include_blank: false } %>
+<%= f.collection_select :genre_id, Genre.all, :id, :name, options = { include_blank: "--選択してください--" } %>
 <ul>税抜価格</ul>
 <%= f.text_field :price %>
 <ul>販売ステータス</ul>
