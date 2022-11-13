@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :addresses
     resources :orders
     resources :items
+    resources :cart_items
     get '/about' => 'homes#about', as: "about"
   end
 

@@ -3,8 +3,7 @@
 <%= @item.introduction %>
 ￥<%= @item.price %>(税込)
 
-<%= form_with @cart_item do |f| %>
-<%= f.select :amount, *[1..3] %>
+<%= form_with model: @cart_item do |f| %>
+<%= f.select :amount, *[1..10] ,options = { include_blank: "個数選択" }%>
 <% end %>
-個数選択
 カートに入れる
