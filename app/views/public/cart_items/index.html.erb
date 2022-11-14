@@ -1,14 +1,21 @@
 <table> 
   <thead>
+      <th>商品名</th>
       <th>単価(税込)</th>
+      <th>数量</th>
       <th>小計</th>
   </thead>
   <tbody>
   <% @cart_items.each do |cart_item| %>
       <tr>
-          <td><%= (cart_item.item.price * 1.1).floor %></td>
-          <td><%= (cart_item.item.price * 1.1).floor * cart_item.amount %></td>
-          <% @total_payment +=  (cart_item.item.price * 1.1).floor * cart_item.amount %>
+        <td>
+          <%= image_tag.cart_item.item.item_image %>
+          <%= cart_item.item.name %>
+        </td>
+        <td><%= (cart_item.item.price * 1.1).floor %></td>
+        <td><%= cart_item.amount %></td>
+        <td><%= (cart_item.item.price * 1.1).floor * cart_item.amount %></td>
+        <% @total_payment +=  (cart_item.item.price * 1.1).floor * cart_item.amount %>
       </tr>
   <% end %>
   </tbody>
