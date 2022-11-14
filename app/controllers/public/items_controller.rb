@@ -7,6 +7,12 @@ class Public::ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
   end
+  
+  def create
+    @cart_item = CartItem.new(cart_item_params)
+    @cart_item.save
+    redirect_to cart_items_path
+  end
 
 private
   def item_params
