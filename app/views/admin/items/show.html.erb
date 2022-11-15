@@ -9,10 +9,10 @@
 <ul>税抜価格</ul>
 <%= @item.price %>
 <ul>販売ステータス</ul>
-<% if @item.is_active = true %>
-<p>販売中</p>
+<% if @item.is_active == true %>
+販売中
 <% else %>
-<p>販売停止中</p>
+販売停止中
 <% end %>
 
 <%= link_to "編集する", edit_admin_item_path(@item.id) %>

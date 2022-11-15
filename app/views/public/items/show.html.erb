@@ -3,7 +3,7 @@
 <%= @item.introduction %>
 ￥<%= @item.price %>(税込)
 
-<%= form_with model: @cart_item do |f| %>
+<%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
 <%= f.select :amount, *[1..10] ,options = { include_blank: "個数選択" }%>
 <%= f.hidden_field :item_id, :value => @item.id %>
 <%= f.submit "カートに入れる" %>
