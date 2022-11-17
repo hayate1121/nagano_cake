@@ -10,7 +10,7 @@
   <% @cart_items.each do |cart_item| %>
       <tr>
         <td>
-          <%= image_tag cart_item.item.item_image %>
+          <%= image_tag cart_item.item.get_item_image(100,100) %>
           <%= cart_item.item.name %>
         </td>
         <td><%= cart_item.item.with_tax_price %></td>
@@ -22,7 +22,7 @@
         </td>
         <td><%= cart_item.subtotal %></td>
         <td>
-          <%= link_to "削除する", url: cart_item_path(cart_item.id), method: :delete %>
+          <%= link_to "削除する", cart_item_path(cart_item.id), method: :delete %>
         </td>
         <% @total_payment +=  cart_item.subtotal %>
       </tr>
