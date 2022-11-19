@@ -13,7 +13,7 @@ class Public::CartItemsController < ApplicationController
       redirect_to cart_items_path
     else
       @cart_item.customer_id = current_customer.id
-      @cart_item.save!
+      @cart_item.save
       @cart_items = current_customer.cart_items.all
       redirect_to cart_items_path
     end

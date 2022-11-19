@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     patch '/customers' => 'customers#update', as: "update_customer"
     patch '/customers/invalid' => 'customers#invalid', as: "invalid"
     get '/orders/complete' => 'orders#complete', as: "complete"
-    get '/orders/confirm' => 'orders#confirm', as: "confirm"
+    post '/orders/confirm' => 'orders#confirm', as: "confirm"
     resources :addresses
     resources :orders
     resources :items
