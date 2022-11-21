@@ -1,0 +1,81 @@
+<h4>注文履歴詳細</h4>
+<%= label :infomation, "注文情報" %>
+<table>
+  <thead>
+    <tr>
+      <th>注文日</th>
+      <th>配送先</th>
+      <th>支払方法</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= @order.created_at.strftime('%Y/%m/%d') %>
+      </td>
+      <td>
+        <%= @order.address_display %>
+      </td>
+      <td>
+        <%= @order.payment_method_i18n %>
+      </td>
+      <td>
+        <%= @order.status_i18n %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= label :payment, "請求情報" %>
+<table>
+  <thead>
+    <tr>
+      <th>商品合計</th>
+      <th>配送料</th>
+      <th>ご請求額</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <% @total_payment = @order.total_payment - @order.shipping_cost %>
+        <%= @total_payment %>
+      </td>
+      <td>
+        <%= @order.shipping_cost %>
+      </td>
+      <td>
+        <%= @order.total_payment %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= label :items, "注文内容" %>
+<table>
+  <thead>
+    <tr>
+      <th>商品</th>
+      <th>単価（税込）</th>
+      <th>個数</th>
+      <th>小計</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%=  %>
+      </td>
+      <td>
+        <%=  %>
+      </td>
+      <td>
+        <%=  %>
+      </td>
+      <td>
+        <%=  %>
+      </td>
+    </tr>
+  </tbody>
+</table>
