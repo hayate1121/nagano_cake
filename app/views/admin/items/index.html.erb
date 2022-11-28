@@ -1,6 +1,13 @@
-<h4>商品一覧</h4>
-<table class="table">
-  <thead>
+<div class="container">
+<div class="row">
+<h4 class="bg-light mr-auto mt-3">商品一覧</h4>
+<%= link_to new_admin_item_path, class: "ml-auto mt-3 text-dark" do %>
+<i class="fas fa-plus"></i>
+<% end %>
+</div>
+<div class="row">
+<table class="table col-lg-10 mx-auto mt-3">
+  <thead class="thead-light">
     <tr>
       <th>商品ID</th>
       <th>商品名</th>
@@ -16,7 +23,7 @@
         <%= item.id %>
       </td>
       <td>
-        <%= link_to item.name, admin_item_path(item.id) %>
+        <%= link_to item.name, admin_item_path(item.id), class: "text-dark" %>
       </td>
       <td>
         <%= item.price %>
@@ -35,3 +42,5 @@
   </tbody>
   <% end %>
 </table>
+</div>
+</div>

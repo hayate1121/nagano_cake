@@ -1,18 +1,37 @@
-<h4>商品詳細</h4>
-<%= image_tag @item.item_image %>
-<ul>商品名</ul>
+<div class="container">
+<div class="row">
+<h4 class="bg-light mr-auto mt-3">商品詳細</h4>
+</div>
+<div class="row">
+<%= image_tag @item.item_image, class: "col-4" %>
+<div class="col-6">
+<div class="mt-3">
+<%= label :name, "商品名", class: "col-4" %>
 <%= @item.name %>
-<ul>商品説明</ul>
+</div>
+<div class="mt-3">
+<%= label :introduction, "商品説明", class: "col-4" %>
 <%= @item.introduction %>
-<ul>ジャンル</ul>
+</div>
+<div class="mt-3">
+<%= label :genre, "ジャンル", class: "col-4" %>
 <%= @item.genre.name %>
-<ul>税抜価格</ul>
-<%= @item.price %>
-<ul>販売ステータス</ul>
+</div>
+<div class="mt-3">
+<%= label :price, "税抜価格", class: "col-4" %>
+<%= @item.price %>円
+</div>
+<div class="mt-3">
+<%= label :status, "販売ステータス", class: "col-4" %>
 <% if @item.is_active == true %>
 販売中
 <% else %>
 販売停止中
 <% end %>
-
-<%= link_to "編集する", edit_admin_item_path(@item.id) %>
+</div>
+</div>
+</div>
+<div class="row">
+<%= link_to "編集する", edit_admin_item_path(@item.id), class: "mx-auto mt-3 btn btn-success" %>
+</div>
+</div>

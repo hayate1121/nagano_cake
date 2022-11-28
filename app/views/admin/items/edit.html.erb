@@ -1,19 +1,41 @@
-<h4>商品編集</h4>
+<div class="container">
+<div class="row">
+<h4 class="bg-light mr-auto mt-3">商品編集</h4>
+</div>
+<div class="row">
+<div class="col-6 mx-auto mt-3">
 <%= form_with model: @item, url: admin_item_path do |f| %>
-<ul>商品画像</ul>
+<div class="mt-3">
+<%= f.label :item_image, "商品画像", class: "col-4" %>
 <%= f.file_field :item_image, accept: "image/*" %>
-<ul>商品名</ul>
+</div>
+<div class="mt-3">
+<%= f.label :name, "商品名", class: "col-4" %>
 <%= f.text_field :name %>
-<ul>商品説明</ul>
+</div>
+<div class="mt-3">
+<%= f.label :introduction, "商品説明", class: "col-4" %>
 <%= f.text_area :introduction %>
-<ul>ジャンル</ul>
+</div>
+<div class="mt-3">
+<%= f.label :genre, "ジャンル", class: "col-4" %>
 <%= f.collection_select :genre_id, Genre.all, :id, :name, options = { include_blank: false } %>
-<ul>税抜価格</ul>
-<%= f.text_field :price %>
-<ul>販売ステータス</ul>
+</div>
+<div class="mt-3">
+<%= f.label :price, "税抜価格", class: "col-4" %>
+<%= f.text_field :price %>円
+</div>
+<div class="mt-3">
+<%= f.label :status, "販売ステータス", class: "col-4" %>
 <%= f.radio_button :is_active, :true %>
 <%= f.label :is_active, "販売中", {value: :true, style: "display: inline-block;"} %>
 <%= f.radio_button :is_active, :false %>
 <%= f.label :is_active, "販売停止中", {value: :false, style: "display: inline-block;"} %>
-<%= f.submit "変更を保存" %>
+</div>
+<div class="col-lg-6 mx-auto mt-3">
+<%= f.submit "変更を保存", class: "btn btn-success" %>
 <% end %>
+</div>
+</div>
+</div>
+</div>

@@ -8,8 +8,8 @@
       <th>小計</th>
     </tr>
   </thead>
-  <% @cart_items.each do |cart_item| %>
   <tbody>
+  <% @cart_items.each do |cart_item| %>
     <tr>
       <td>
         <%= image_tag cart_item.item.get_item_image(100,100) %>
@@ -26,8 +26,8 @@
         <%= cart_item.subtotal %>
       </td>
     </tr>
-  </tbody>
   <% end %>
+  </tbody>
 </table>
 
 <table>

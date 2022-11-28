@@ -1,3 +1,6 @@
+<div class="container">
+<div class="row">
+<div class="col-lg-8">
 <h4>注文履歴一覧</h4>
 <table class="table">
   <thead>
@@ -20,15 +23,18 @@
         <%= order.customer.first_name %>
       </td>
       <td>
-        <% @order_details.each do |order_detail| %>
+        <% order.order_details.each do |order_detail| %>
           <% @total_amount += order_detail.amount %>
         <% end %>
         <%= @total_amount %>
       </td>
       <td>
-        <%= order.status %>
+        <%= order.status_i18n %>
       </td>
     </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
+</div>

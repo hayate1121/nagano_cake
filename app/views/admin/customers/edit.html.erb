@@ -1,7 +1,11 @@
-<%= form_with model @customer, url: admin_customer_path do |f| %>
-<h4>
-  <%= customer.last_name %><%= customer.first_name %>さんの会員情報編集
-</h4>
+<%= form_with model: @customer, url: admin_customer_path do |f| %>
+<div class="container">
+<div class="row">
+<h5 class="bg-light mr-auto mt-3">
+  <%= @customer.full_name %>さんの会員情報編集
+</h5>
+</div>
+<div class="row">
 <ul>氏名</ul>
 <%= f.text_field :last_name %>  <%= f.text_field :first_name %>
 <ul>フリガナ</ul>
@@ -20,5 +24,7 @@
 <%= f.radio_button :is_deleted, :true %>
 <%= f.label :is_deleted, "退会", {value: :false, style: "display: inline-block;"} %>
 
-<%= submit "変更を保存" %>
+<%= f.submit "変更を保存" %>
 <% end %>
+</div>
+</div>

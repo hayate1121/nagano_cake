@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     patch '/customers/invalid' => 'customers#invalid', as: "invalid"
     get '/orders/complete' => 'orders#complete', as: "complete"
     post '/orders/confirm' => 'orders#confirm', as: "confirm"
-    delete 'cart_items/destroy_all' => 'cart_items#destroy_all', as: "destroy_all"
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: "destroy_all"
     resources :addresses
     resources :orders
     resources :order_details

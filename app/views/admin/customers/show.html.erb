@@ -1,25 +1,48 @@
-<h4>
-  <%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細
-</h4>
-<ul>会員ID</ul>
+<div class="container">
+<div class="row">
+<h5 class="bg-light mr-auto mt-3">
+  <%= @customer.full_name %>さんの会員詳細
+</h5>
+</div>
+<div class="row">
+<div class="col-8 mr-auto mt-3">
+<%= label :id, "会員ID", class: "col-4" %>
 <%= @customer.id %>
-<ul>氏名</ul>
-<%= @customer.last_name %> <%= @customer.first_name %>
-<ul>フリガナ</ul>
-<%= @customer.last_name_kana %> <%= @customer.first_name_kana %>
-<ul>郵便番号</ul>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= label :name, "氏名", class: "col-4" %>
+<%= @customer.full_name %>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= label :name_kana, "フリガナ", class: "col-4" %>
+<%= @customer.last_name_kana %><%= @customer.first_name_kana %>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= label :postal_code, "郵便番号", class: "col-4" %>
 <%= @customer.postal_code %>
-<ul>住所</ul>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= label :address, "住所", class: "col-4" %>
 <%= @customer.address %>
-<ul>電話番号</ul>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= label :telephone_number, "電話番号", class: "col-4" %>
 <%= @customer.telephone_number %>
-<ul>メールアドレス</ul>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= label :email, "メールアドレス", class: "col-4" %>
 <%= @customer.email %>
-<ul>会員ステータス</ul>
-<% if @item.is_deleted = true %>
-<p>有効</p>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= label :status, "会員ステータス", class: "col-4" %>
+<% if @customer.is_deleted = true %>
+<a>有効</a>
 <% else %>
-<p>退会</p>
+<p>退会</a>
 <% end %>
-
-<%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success" %>
+</div>
+</div>
+</div>
