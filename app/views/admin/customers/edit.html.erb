@@ -6,25 +6,44 @@
 </h5>
 </div>
 <div class="row">
-<ul>氏名</ul>
+<div class="col-8 mr-auto mt-3">
+<%= f.label :ID, "会員ID", class: "col-4" %>
+<%= @customer.id %>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= f.label :full_name, "氏名", class: "col-4" %>
 <%= f.text_field :last_name %>  <%= f.text_field :first_name %>
-<ul>フリガナ</ul>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= f.label :full_name_kana, "カナ", class: "col-4" %>
 <%= f.text_field :last_name_kana %>  <%= f.text_field :first_name_kana %>
-<ul>郵便番号</ul>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= f.label :postal_code, "郵便番号", class: "col-4" %>
 <%= f.text_field :postal_code %>
-<ul>住所</ul>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= f.label :address, "住所", class: "col-4" %>
 <%= f.text_area :address %>
-<ul>電話番号</ul>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= f.label :telephone_number, "電話番号", class: "col-4" %>
 <%= f.text_field :telephone_number %>
-<ul>メールアドレス</ul>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= f.label :email, "メールアドレス", class: "col-4" %>
 <%= f.text_field :email %>
-<ul>会員ステータス</ul>
+</div>
+<div class="col-8 mr-auto mt-3">
+<%= f.label :status, "会員ステータス", class: "col-4" %>
 <%= f.radio_button :is_deleted, :false %>
 <%= f.label :is_deleted, "有効", {value: :true, style: "display: inline-block;"} %>
 <%= f.radio_button :is_deleted, :true %>
 <%= f.label :is_deleted, "退会", {value: :false, style: "display: inline-block;"} %>
-
-<%= f.submit "変更を保存" %>
+</div>
+<div class="col-9 ml-auto mt-3">
+<%= f.submit "変更を保存", class: "btn btn-success" %>
 <% end %>
+</div>
 </div>
 </div>

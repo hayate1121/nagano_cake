@@ -1,11 +1,14 @@
 <h4>注文履歴詳細</h4>
 <h4>購入者</h4>
-<%= @order.customer.name %>
+<%= @order.customer.full_name %>
 <h4>注文日</h4>
-<%= @order.created_at %>
+<%= @order.created_at.strftime('%Y/%m/%d') %>
 <h4>配送先</h4>
 <%= @order.address %>
 <h4>支払方法</h4>
-<%= @order.payment_method %>
+<%= @order.payment_method_i18n %>
 <h4>注文ステータス</h4>
-<%= f.collection_select :status, @order, :id, :status %>
+<%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
+<%= f.select :status, @order.status_i18n %>
+<%= f.submit "更新" %>
+<% end %>
