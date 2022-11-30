@@ -1,5 +1,8 @@
-<h2>新規登録</h2>
-
+<div class="container">
+<div class="row">
+<h4 class="bg-light mr-auto mt-3">新規登録</h4>
+</div>
+<div class="row">
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
 
@@ -61,3 +64,6 @@
 <h4>既に登録済みの方</h4>
 <%= link_to "こちら", new_customer_session_path %>
 <a>からログインしてください。</a>
+</div>
+</div>
+</div>
