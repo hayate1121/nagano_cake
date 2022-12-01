@@ -1,17 +1,70 @@
-<h4>会員情報編集</h4>
+<div class="container">
+<div class="row">
+<h4 class="bg-light mr-auto mt-5">会員情報編集</h4>
+</div>
 <%= form_with model: @customer, url: customer_path do |f| %>
-<ul>氏名</ul>
-<%= f.text_field :last_name %>  <%= f.text_field :first_name %>
-<ul>フリガナ</ul>
-<%= f.text_field :last_name_kana %>  <%= f.text_field :first_name_kana %>
-<ul>郵便番号</ul>
+<div class="field row mt-3">
+<div class="col-3">
+<%= f.label "氏名" %>
+</div>
+<div class="col-3">
+<%= f.text_field :last_name %>
+</div>
+<div class="col-3">
+<%= f.text_field :first_name %>
+</div>
+</div>
+<div class="field row mt-3">
+<div class="col-3">
+<%= f.label "フリガナ" %>
+</div>
+<div class="col-3">
+<%= f.text_field :last_name_kana %>
+</div>
+<div class="col-3">
+<%= f.text_field :first_name_kana %>
+</div>
+</div>
+<div class="field row mt-3">
+<div class="col-3">
+<%= f.label "郵便番号" %>
+</div>
+<div class="col-3">
 <%= f.text_field :postal_code %>
-<ul>住所</ul>
+</div>
+</div>
+<div class="field row mt-3">
+<div class="col-3">
+<%= f.label "住所" %>
+</div>
+<div class="col-3">
 <%= f.text_area :address %>
-<ul>電話番号</ul>
+</div>
+</div>
+<div class="field row mt-3">
+<div class="col-3">
+<%= f.label "電話番号" %>
+</div>
+<div class="col-3">
 <%= f.text_field :telephone_number %>
-<ul>メールアドレス</ul>
-<%= f.text_field :email %><br>
-<%= f.submit "編集内容を保存" %>
-<%= link_to "退会する", unsubscribe_path %>
+</div>
+</div>
+<div class="field row mt-3">
+<div class="col-3">
+<%= f.label "メールアドレス" %>
+</div>
+<div class="col-3">
+<%= f.text_field :email %>
+</div>
+</div>
+
+<div class="row mt-3">
+<div class="col-3">
+<%= f.submit "編集内容を保存", class: "btn btn-success" %>
+</div>
+<div class="col-3">
+<%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %>
+</div>
+</div>
 <% end %>
+</div>
