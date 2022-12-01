@@ -1,67 +1,103 @@
 <div class="container">
 <div class="row">
-<h4 class="bg-light mr-auto mt-3">新規登録</h4>
+<h4 class="bg-light mr-auto mt-5">新規登録</h4>
 </div>
-<div class="row">
 <%= form_with model: @customer, url: customer_registration_path do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
-
-  <a>名前</a>
-  <div class="field">
-    <%= f.label "（姓）" %>
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+  <div class="mr-auto mt-3">
+  <div class="field row mt-3">
+    <div class="col-3">
+      <%= label :name, "名前" %>
+    </div>
+    <div class="col-4">
+      <%= f.label "（姓）" %>
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+    </div>
+    <div class="col-4">
+      <%= f.label "（名）" %>
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label "（名）" %>
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-  </div>
 
-  <a>フリガナ</a>
-  <div class="field">
+  <div class="field row mt-3">
+    <div class="col-3">
+    <%= label :kana, "フリガナ" %>
+    </div>
+    <div class="col-4">
     <%= f.label "（セイ）" %>
     <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
-  </div>
-  <div class="field">
+    </div>
+    <div class="col-4">
     <%= f.label "（メイ）" %>
     <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+    </div>
   </div>
 
-  <a>メールアドレス</a>
-  <div class="field">
+  <div class="field row mt-3">
+    <div class="col-3">
+    <%= label :email, "メールアドレス" %>
+    </div>
+    <div class="col-4">
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
   </div>
 
-  <a>郵便番号（ハイフンなし）</a>
-  <div class="field">
+  <div class="field row mt-3">
+    <div class="col-3">
+    <%= label :postal_code, "郵便番号（ハイフンなし）" %>
+    </div>
+    <div class="col-4">
     <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+    </div>
   </div>
 
-  <a>住所</a>
-  <div class="field">
+  <div class="field row mt-3">
+    <div class="col-3">
+    <%= label :address, "住所" %>
+    </div>
+    <div class="col-4">
     <%= f.text_area :address, autofocus: true, autocomplete: "address" %>
+    </div>
   </div>
 
-  <a>電話番号（ハイフンなし）</a>
-  <div class="field">
+  <div class="field row mt-3">
+    <div class="col-3">
+    <%= label :telephone_number, "電話番号（ハイフンなし）" %>
+    </div>
+    <div class="col-4">
     <%= f.text_field :telephone_number, autofocus: true, autocomplete: "telephone_number" %>
+    </div>
   </div>
 
-  <a>パスワード（6文字以上）</a>
-  <div class="field">
+  <div class="field row mt-3">
+    <div class="col-3">
+    <%= label :password, "パスワード（6文字以上）" %>
+    </div>
+    <div class="col-4">
     <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
   </div>
 
-  <a>パスワード（確認用）</a>
-  <div class="field">
+  <div class="field row mt-3">
+    <div class="col-3">
+    <%= label :password_confirmation, "パスワード（確認用）" %>
+    </div>
+    <div class="col-4">
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
   </div>
-
+  
+  <div class="row mt-3">
   <div class="actions">
-    <%= f.submit "新規登録", class:"btn btn-success" %>
+    <%= f.submit "新規登録", class:"btn btn-success mr-auto" %>
+  </div>
   </div>
 <% end %>
 
-<h4>既に登録済みの方</h4>
+<div class="row mt-6">
+<h4 class="bg-light mr-auto">既に登録済みの方</h4>
+</div>
+<div class="row mt-6">
 <%= link_to "こちら", new_customer_session_path %>
 <a>からログインしてください。</a>
 </div>
