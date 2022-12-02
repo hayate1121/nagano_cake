@@ -1,10 +1,17 @@
-<%= image_tag @item.get_item_image(100,100) %>
+<div class="container">
+<div class="row mt-5">
+<div class="col-5">
+<%= image_tag @item.get_item_image(400,400) %>
+</div>
+<div class="col-5">
 <%= @item.name %>
 <%= @item.introduction %>
 ￥<%= @item.price %>(税込)
-
 <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
 <%= f.select :amount, *[1..10] ,options = { include_blank: "個数選択" }%>
 <%= f.hidden_field :item_id, :value => @item.id %>
 <%= f.submit "カートに入れる" %>
 <% end %>
+</div>
+</div>
+</div>

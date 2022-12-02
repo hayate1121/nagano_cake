@@ -1,11 +1,18 @@
-<h4>商品一覧(全
+<div class="container">
+<div class="row">
+<h4 class="mr-auto mt-5">商品一覧(全
 <%= @items.count %>
 件)</h4>
+</div>
 
+<div class="row">
   <% @items.each do |item| %>
+    <div class="col-3">
     <%= link_to item_path(item.id) do %>
-    <%= image_tag item.get_item_image(100,100) %>
+    <%= image_tag item.get_item_image(200,200) %>
     <% end %><br>
     <%= item.name %><br>
     ￥<%= item.price %></br>
+    </div>
   <% end %>
+</div>
