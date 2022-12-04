@@ -1,28 +1,85 @@
-<h4>注文情報入力画面</h4>
-<%= form_with model: @order, url: confirm_path do |f| %>
-<h4><%= f.label :payment_method, "支払方法" %></h4>
-<%= f.collection_radio_buttons :payment_method, Order.payment_methods_i18n, :first, :last %>
+<div class="container">
+<div class="row">
+<div class="col-1">
+</div>
+<h4 class="bg-light mt-5">注文情報入力画面</h4>
+</div>
 
-<h4><%= f.label :address, "お届け先" %></h4>
-<div class="form-group">
+<%= form_with model: @order, url: confirm_path do |f| %>
+<div class="row mt-4">
+<h4 class="mr-auto">
+  <%= f.label :payment_method, "支払方法" %>
+</h4>
+</div>
+<div class="row">
+<div class="col-3">
+<%= f.collection_radio_buttons :payment_method, Order.payment_methods_i18n, :first, :last %>
+</div>
+</div>
+
+<div class="row mt-4">
+<h4 class="mr-auto">
+  <%= f.label :address, "お届け先" %>
+</h4>
+</div>
+<div class="row">
+<div class="col-3">
   <%= f.radio_button :address_option, 0 %>
-  <%= f.label :address, "ご自身の住所" %></br>
+  <%= f.label :address, "ご自身の住所" %>
+</div>
+</div>
+<div class="row">
+<div class="col-3">
   <%= @customer.address_display %>
 </div>
-<div class="form-group">
+</div>
+
+<div class="row mt-3">
+<div class="col-3">
   <%= f.radio_button :address_option, 1 %>
-  <%= f.label :address, "登録済み住所から選択" %></br>
-  <%= f.select :address_id, options_from_collection_for_select(@addresses, :id, :address_display) %>
+  <%= f.label :address, "登録済み住所から選択" %>
 </div>
-<div class="form-group">
+</div>
+<div class="row">
+<div class="col-3">
+  <%= f.select :address_id, options_from_collection_for_select(@addresses, :id, :address_display), options = { include_blank: "個数選択" } %>
+</div>
+</div>
+
+<div class="row mt-3">
+<div class="col-3">
   <%= f.radio_button :address_option, 2 %>
-  <%= f.label :address, "新しいお届け先" %></br>
-  <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
-  <%= f.text_field :postal_code %><br>
-  <%= f.label :address, "住所" %>
-  <%= f.text_area :address %><br>
-  <%= f.label :name, "宛名" %>
-  <%= f.text_field :name %><br>
+  <%= f.label :address, "新しいお届け先" %>
 </div>
-<%= f.submit "確認画面に進む" %>
+</div>
+<div class="field row mt-2">
+<div class="col-3">
+<%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
+</div>
+<div class="col-3">
+<%= f.text_field :postal_code %>
+</div>
+</div>
+<div class="field row mt-2">
+<div class="col-3">
+<%= f.label :address, "住所" %>
+</div>
+<div class="col-3">
+<%= f.text_area :address %>
+</div>
+</div>
+<div class="field row mt-2">
+<div class="col-3">
+<%= f.label :name, "宛名" %>
+</div>
+<div class="col-3">
+<%= f.text_field :name %>
+</div>
+</div>
+<div class="row mt-3">
+<div class="col-2">
+</div>
+<%= f.submit "確認画面に進む", class: "btn btn-primary" %>
+</div>
 <% end %>
+</div>

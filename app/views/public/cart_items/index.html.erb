@@ -1,7 +1,15 @@
-<h4>ショッピングカート</h4>
-<%= link_to "カートを空にする", destroy_all_path, method: :delete %>
-<table> 
-  <thead>
+<div class="container">
+<div class="row mt-5">
+<div class="col-5">
+<h4 class="mr-auto">ショッピングカート</h4>
+</div>
+<div class="col-3">
+<%= link_to "カートを空にする", destroy_all_path, class: "btn btn-danger", method: :delete %>
+</div>
+</div>
+
+<table class="table table-bordered mt-5"> 
+  <thead class="bg-light">
       <th>商品名</th>
       <th>単価(税込)</th>
       <th>数量</th>
@@ -12,23 +20,23 @@
   <% @cart_items.each do |cart_item| %>
       <tr>
         <td>
-          <%= image_tag cart_item.item.get_item_image(100,100) %>
+          <%= image_tag cart_item.item.get_item_image(50,50) %>
           <%= cart_item.item.name %>
         </td>
         <td>
-          <%= cart_item.item.with_tax_price %>
+          <%= cart_item.item.with_tax_price %>円
         </td>
         <td>
           <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch do |f| %>
           <%= f.select :amount, *[1..10] %>
-          <%= f.submit "変更" %>
+          <%= f.submit "変更", class: "btn btn-success" %>
           <% end %>
         </td>
         <td>
-          <%= cart_item.subtotal %>
+          <%= cart_item.subtotal %>円
         </td>
         <td>
-          <%= link_to "削除する", cart_item_path(cart_item.id), method: :delete %>
+          <%= link_to "削除する", cart_item_path(cart_item.id), class: "btn btn-danger", method: :delete %>
         </td>
         <% @total_payment +=  cart_item.subtotal %>
       </tr>
@@ -36,21 +44,26 @@
   </tbody>
 </table>
 
-<%= link_to "買い物を続ける", root_path %>
-
-<table>
-  <thead>
-    <tr>
-      <th>合計金額</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <%= @total_payment %>
-      </td>
-    </tr>
-  </tbody>
+<div class="row mt-5">
+<div class="col-3">
+<%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
+</div>
+<div class="col-10 ml-auto">
+<table class="table table-bordered col-3 mt-3 ml-auto">
+  <tr>
+    <th class="bg-light">合計金額</th>
+    <td>
+      <%= @total_payment %>円
+    </td>
+  </tr>
 </table>
+</div>
+</div>
 
-<%= link_to "情報入力に続く", new_order_path %>
+<div class="row mt-3">
+<div class="mx-auto">
+<%= link_to "情報入力に続く", new_order_path, class: "btn btn-success" %>
+</div>
+</div>
+
+</div>
