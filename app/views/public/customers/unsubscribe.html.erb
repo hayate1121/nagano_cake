@@ -23,7 +23,10 @@
 <%= link_to '退会しない', customer_path, class: "btn btn-primary" %>
 </div>
 <div class="col-4 mx-auto">
-<%= link_to '退会する',  invalid_path(@customer.id, customer: {is_deleted: true}), class: "btn btn-danger", method: :patch %>
+<%= form_with model: @customer, url: invalid_path(@customer.id), method: :patch do |f| %>
+<%= f.hidden_field :is_deleted, :value => true %>
+<%= f.submit '退会する', class: "btn btn-danger" %>
+<% end %>
 </div>
 </div>
 </div>

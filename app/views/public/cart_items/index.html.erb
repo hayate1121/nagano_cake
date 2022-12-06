@@ -7,7 +7,7 @@
 <%= link_to "カートを空にする", destroy_all_path, class: "btn btn-danger", method: :delete %>
 </div>
 </div>
-
+<% if @cart_items.present? %>
 <table class="table table-bordered mt-5"> 
   <thead class="bg-light">
       <th>商品名</th>
@@ -43,7 +43,13 @@
   <% end %>
   </tbody>
 </table>
-
+<% else %>
+<div class="row">
+<div class="mx-auto mt-5">
+カートが空です。
+</div>
+</div>
+<% end %>
 <div class="row mt-5">
 <div class="col-3">
 <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>

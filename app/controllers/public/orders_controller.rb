@@ -38,6 +38,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = @customer.id
     @order.save
+    current_customer.cart_items.destroy_all
     @cart_items.each do |cart_item|
       @order_detail = OrderDetail.new
       @order_detail.item_id = cart_item.item_id
