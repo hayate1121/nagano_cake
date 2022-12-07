@@ -31,7 +31,7 @@
 </div>
 
 <div class="row mt-5">
-<div class="col-6">
+<div class="col-7">
 <table class="table mr-auto">
   <thead class="thead-light">
     <tr>
@@ -60,7 +60,10 @@
         <%= @total %>円
       </td>
       <td>
-        <%= order_detail.making_status_i18n %>
+        <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
+        <%= f.select :making_status, OrderDetail.making_statuses_i18n.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]} %>
+        <%= f.submit "更新", class: "btn btn-success ml-auto"%>
+        <% end %>
       </td>
     </tr>
     <% end %>

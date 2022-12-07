@@ -66,10 +66,12 @@
 </div>
 </div>
 
+<% if @cart_items.present? %>
 <div class="row mt-3">
 <div class="mx-auto">
 <%= link_to "情報入力に続く", new_order_path, class: "btn btn-success" %>
 </div>
 </div>
+<% end %>
 
 </div>

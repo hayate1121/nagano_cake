@@ -38,7 +38,6 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = @customer.id
     @order.save
-    current_customer.cart_items.destroy_all
     @cart_items.each do |cart_item|
       @order_detail = OrderDetail.new
       @order_detail.item_id = cart_item.item_id
@@ -47,6 +46,7 @@ class Public::OrdersController < ApplicationController
       @order_detail.amount = cart_item.amount
       @order_detail.save
     end
+    current_customer.cart_items.destroy_all
     render "complete"
   end
   
@@ -56,7 +56,6 @@ class Public::OrdersController < ApplicationController
   def index
     @customer = current_customer
     @orders = @customer.orders
-    
   end
   
   def show

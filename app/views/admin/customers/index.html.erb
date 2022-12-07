@@ -28,13 +28,12 @@
         <% if customer.is_deleted == false %>
           有効
         <% else %>
-          無効
+          退会
         <% end %>
       </td>
     </tr>
   </tbody>
   <% end %>
-  <%= paginate @customers %>
 </table>
 </div>
 </div>
