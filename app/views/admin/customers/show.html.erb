@@ -35,10 +35,10 @@
 </div>
 <div class="col-8 mr-auto mt-3">
 <%= label :status, "会員ステータス", class: "col-4" %>
-<% if @customer.is_deleted = true %>
-<a>有効</a>
+<% if @customer.is_deleted == true %>
+<a>退会</a>
 <% else %>
-<p>退会</a>
+<a>有効</a>
 <% end %>
 </div>
 <div class="col-8 mr-auto mt-3">

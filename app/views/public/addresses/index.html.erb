@@ -2,13 +2,9 @@
 <div class="row">
 <h4 class="bg-light mr-auto mt-3">配送先登録/一覧</h4>
 </div>
+  <%= form_with model: @address, url: addresses_path do |f| %>
   <div class="row">
   <div class="mr-auto mt-3">
-  <%= form_with model: @address, url: addresses_path do |f| %>
-  </div>
-  </div>
-    <div class="row">
-    <div class="mr-auto mt-3">
     郵便番号（ハイフンなし）
     </div>
     </div>
@@ -42,7 +38,8 @@
     <%= f.submit "新規登録", class: "btn btn-success" %>
     </div>
     </div>
-  <% end %>
+    <% end %>
+  
 <div class="row">
 <table class="table table-bordered col-8 mt-5">
   <thead class="bg-light">
